@@ -17,8 +17,8 @@ function App() {
     <>
       <StyledApp>
         <Reset />
+        <Modal />
         <Main />
-        {/* <Modal /> */}
       </StyledApp>
     </>
   );
