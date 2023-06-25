@@ -1,7 +1,9 @@
+import React from "react";
 import Main from "./pages/Main/Main";
 import Modal from "./pages/Modal/Modal";
 
-import styles from "./App.module.css";
+import { Reset } from "styled-reset";
+import styled from "styled-components";
 
 function App() {
   //img data fetch
@@ -13,10 +15,15 @@ function App() {
 
   return (
     <>
-      <Main />
-      {/* <Modal /> */}
+      <StyledApp>
+        <Reset />
+        <Main />
+        {/* <Modal /> */}
+      </StyledApp>
     </>
   );
 }
+
+const StyledApp = styled.div``;
 
 export default App;
