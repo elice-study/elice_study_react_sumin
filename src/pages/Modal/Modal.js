@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 function Modal({ closeModal, movieInfo }) {
-  const { title, posterImageFileName } = movieInfo;
+  const { title, posterImageFileName, description } = movieInfo;
 
   return (
     <StyledModalContainer>
@@ -45,12 +45,7 @@ function Modal({ closeModal, movieInfo }) {
               <div className="main__info__permissibleAge">ALL</div>
             </div>
             <div className="main__story">
-              <span>
-                사랑스러운 초보마녀 ‘키키’는 검은 고양이 ‘지지’와 함께 빗자루를
-                타고 마녀 수련을 떠난다. 항구 마을에 불시착한 키키는 첫날부터
-                우여곡절을 겪지만, ‘배달’에 재능이 있다는 걸 발견하고 본격적인
-                마법 수련을 시작하는데…
-              </span>
+              <span>{description}</span>
             </div>
             <div className="main__creator">
               <span>감독: </span>
