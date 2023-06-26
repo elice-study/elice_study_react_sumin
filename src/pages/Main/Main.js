@@ -10,30 +10,46 @@ import { useState } from "react";
 
 function Main() {
   const [movies, setMovies] = useState(dummy);
-  console.log(movies);
+
+  const [openModal, setOpenModal] = useState(false);
+  const showModal = () => {
+    setOpenModal(true);
+  };
+  const closeModal = () => {
+    setOpenModal(false);
+  };
 
   return (
-    <StyledMain>
-      <>
+    <StyledMainContainer>
+      <StyledMain>
+        {openModal && <Modal className="modal" closeModal={closeModal} />}
         <Header />
         <Nav />
         <div className="movies">
           {movies.map((movieObj) => {
-            return <Movies key={movieObj.movieId} movie={movieObj} />;
+            return (
+              <Movies
+                key={movieObj.movieId}
+                movie={movieObj}
+                showModal={showModal}
+              />
+            );
           })}
         </div>
-      </>
-    </StyledMain>
+      </StyledMain>
+    </StyledMainContainer>
   );
 }
 
-const StyledMain = styled.div`
+const StyledMainContainer = styled.div`
   background-color: #141414;
   color: #fff;
   fontfamily: "Noto Sans KR", sans-serif;
   fontfamily: "Open Sans", sans-serif;
   padding: 35px;
+`;
 
+const StyledMain = styled.div`
   .movies {
     width: 100%;
     display: grid;

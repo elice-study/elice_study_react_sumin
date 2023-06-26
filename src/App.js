@@ -6,18 +6,10 @@ import { Reset } from "styled-reset";
 import styled from "styled-components";
 
 function App() {
-  //img data fetch
-  // getMovieImg = async () => {
-  //   const res = await fetch("./dummy.json");
-  //   const data = await res.json();
-  //   console.log(data);
-  // };
-
   return (
     <>
       <StyledApp>
         <Reset />
-        <Modal />
         <Main />
       </StyledApp>
     </>
