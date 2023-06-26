@@ -9,15 +9,19 @@ import dummy from "../../data/dummy.json";
 import { useState } from "react";
 
 function Main() {
-  const [movies, setMovies] = useState(dummy);
+  const movies = dummy;
   const [movieInfo, setMoviedInfo] = useState();
 
   const [openModal, setOpenModal] = useState(false);
   const showModal = () => {
     setOpenModal(true);
+    window.scrollTo({ top: 0 });
+    //모달 오픈시 내부스크롤은 가능하고 외부는 막도록 하는 방법,,(추후 추가..)
+    // document.body.style.overflow = "hidden";
   };
   const closeModal = () => {
     setOpenModal(false);
+    // document.body.style.overflow = "unset";
   };
   const clickedMovieInfo = (movieId) => {
     setMoviedInfo(movies[movieId - 1]);

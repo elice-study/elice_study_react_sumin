@@ -107,7 +107,7 @@ const StyledModal = styled.div`
     justify-content: flex-end;
   }
   .header__close__btn {
-    margin: 30px 15px 0 0;
+    margin: 15px 15px 0 0;
     cursor: pointer;
   }
   .header__row {
