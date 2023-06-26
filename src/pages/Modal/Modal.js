@@ -8,12 +8,16 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
-function Modal({ closeModal }) {
+function Modal({ closeModal, movieInfo }) {
+  const { title, posterImageFileName } = movieInfo;
+
   return (
     <StyledModalContainer>
       <StyledModal>
         <div className="modal__layout__body">
-          <header style={{ backgroundImage: `선택된 무비이미지` }}>
+          <header
+            style={{ backgroundImage: `url(img/${posterImageFileName})` }}
+          >
             <div className="header__close" onClick={closeModal}>
               <FontAwesomeIcon
                 icon={faCircleXmark}
@@ -22,7 +26,7 @@ function Modal({ closeModal }) {
               />
             </div>
             <div className="header__row">
-              <span className="header__row__title"></span>
+              <span className="header__row__title">{title}</span>
               <div className="header__row__heart">
                 <FontAwesomeIcon
                   icon={faHeart}

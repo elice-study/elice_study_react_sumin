@@ -10,6 +10,7 @@ import { useState } from "react";
 
 function Main() {
   const [movies, setMovies] = useState(dummy);
+  const [movieInfo, setMoviedInfo] = useState();
 
   const [openModal, setOpenModal] = useState(false);
   const showModal = () => {
@@ -18,11 +19,20 @@ function Main() {
   const closeModal = () => {
     setOpenModal(false);
   };
+  const clickedMovieInfo = (movieId) => {
+    setMoviedInfo(movies[movieId - 1]);
+  };
 
   return (
     <StyledMainContainer>
       <StyledMain>
-        {openModal && <Modal className="modal" closeModal={closeModal} />}
+        {openModal && (
+          <Modal
+            className="modal"
+            closeModal={closeModal}
+            movieInfo={movieInfo}
+          />
+        )}
         <Header />
         <Nav />
         <div className="movies">
@@ -32,6 +42,7 @@ function Main() {
                 key={movieObj.movieId}
                 movie={movieObj}
                 showModal={showModal}
+                clickedMovieInfo={clickedMovieInfo}
               />
             );
           })}

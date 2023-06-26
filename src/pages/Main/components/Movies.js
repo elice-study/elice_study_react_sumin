@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-function Movies({ movie, showModal }) {
+function Movies({ movie, showModal, clickedMovieInfo }) {
   const { movieId, posterImageFileName } = movie;
+  const clickMovie = () => {
+    showModal();
+    clickedMovieInfo(movieId);
+  };
 
   return (
     <StyledMovies>
-      <div className="movie" onClick={showModal}>
+      <div className="movie" onClick={clickMovie}>
         <img id={movieId} src={`posterImg/${posterImageFileName}`} alt="" />
       </div>
     </StyledMovies>
